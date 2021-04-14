@@ -1,3 +1,4 @@
+package com.company;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -74,7 +75,7 @@ public class Main {
         System.out.println("(3) Update a task.");
         System.out.println("(4) List all tasks.");
         System.out.println("(5) List all tasks with a priority");
-        System.out.println("sort");
+        System.out.println("(6) Sort the tasks");
         System.out.println("(0) Exit.");
     }
 
@@ -88,25 +89,25 @@ public class Main {
 
     static void listTask(ArrayList tasks){
         //test
-        Collections.sort(tasks);
+
         for (int i =0; i < tasks.size(); i++){
             System.out.println(i+1 + ": " + tasks.get(i));
         }
     }
 
     static void sortTask(ArrayList<Task> tasks){
-        for (int i =0; i < tasks.size(); i++){
-            //compare priorities and then move
-            if(tasks.get(i).getPriority() < tasks.get(i+1).getPriority()){
-                Task toMove = tasks.get(i);
-                tasks.set(i, tasks.get(i-1));
-                tasks.set(i-1, toMove);
+        /*for (int i =0; i < tasks.size()+1; i++) {
+            if(tasks.get(i).compareTo(tasks.get(i + 1)) < 0);
+                swap(tasks, i, i+1);
+
             }
-            //if priorities are equal, compare strings
             //if no moves are necessary,advance.
             //If no moves are necessary all the way down, you're done.
-        }
+         */
+        Collections.sort(tasks);
+        listTask(tasks);
     }
+
 
     static void updateTask(ArrayList tasks, int index, String desc){
         tasks.set(index-1, desc);
